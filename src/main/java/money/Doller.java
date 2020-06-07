@@ -3,7 +3,7 @@ package money;
 import java.util.Objects;
 
 public class Doller {
-    public int amount;
+    private int amount;
 
     public Doller(int amount) {
         this.amount = amount;
