@@ -1,5 +1,7 @@
 package money;
 
+import java.util.Objects;
+
 public class Doller {
     public int amount;
 
@@ -10,4 +12,12 @@ public class Doller {
     public Doller times(int multiplier) {
         return new Doller(amount * multiplier);
     }
+
+    @Override
+    public boolean equals(Object object) {
+        Doller doller = (Doller) object;
+        return amount == doller.amount;
+    }
+
+
 }
