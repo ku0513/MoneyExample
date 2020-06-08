@@ -16,4 +16,10 @@ public class MoneyTest {
         assertTrue(new Doller(5).equals(new Doller(5)));
         assertFalse(new Doller(5).equals(new Doller(6)));
     }
+    @Test
+    public void testFrancMulitplication() {
+        Franc five = new Franc(5);
+        assertEquals(new Franc(10), five.times(2));
+        assertEquals(new Franc(15), five.times(3));
+    }
 }
