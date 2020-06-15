@@ -1,6 +1,6 @@
 package money;
 
-class Money {
+class Money implements Expressoion {
     protected int amount;
     protected String currency;
 
@@ -9,7 +9,6 @@ class Money {
         this.currency = currency;
     }
 
-//    abstract Money times(int multiplier);
     Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
     }
@@ -17,6 +16,7 @@ class Money {
         return currency;
     }
 
+    // 8章でFactory Methodに置き換えた。
     public static Money dollar(int amount) {
         return new Money(amount, "USD");
     }
@@ -33,5 +33,9 @@ class Money {
 
     public String toString() {
         return amount + " "  + currency;
+    }
+
+    public Expressoion plus(Money addedn) {
+        return new Money(amount + addedn.amount, currency);
     }
 }
