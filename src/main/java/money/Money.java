@@ -35,7 +35,11 @@ class Money implements Expressoion {
         return amount + " "  + currency;
     }
 
-    public Expressoion plus(Money addedn) {
-        return new Money(amount + addedn.amount, currency);
+    public Expressoion plus(Money addend) {
+        return new Sum(this, addend);
+    }
+
+    public Money reduce(String to) {
+        return this;
     }
 }
