@@ -1,6 +1,6 @@
 package money;
 
-class Money implements Expressoion {
+class Money implements Expression {
     protected int amount;
     protected String currency;
 
@@ -35,11 +35,12 @@ class Money implements Expressoion {
         return amount + " "  + currency;
     }
 
-    public Expressoion plus(Money addend) {
+    public Expression plus(Money addend) {
         return new Sum(this, addend);
     }
 
-    public Money reduce(String to) {
-        return this;
+    public Money reduce(Bank bank, String to) {
+        int rate = bank.rate(currency, to);
+        return new Money(amount / rate, to);
     }
 }
